@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fav icon  -->
+    <link rel="shortcut icon" href="./images/smartphone.png" type="image/x-icon">
+    <title>RK PHONE SHOP</title>
+
+    <!-- Bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <!-- custom  css link  -->
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+
+    <header class="custom-bg py-5" id="header-area">
+        <h2 class="text-center"> Phone Shop</h2>
+        <div class="input-group mb-3 w-50 mx-auto">
+
+            <input id="search-input" type="text" class="form-control" placeholder="Search the Phone"
+                aria-label="Search the Phone" aria-describedby="button-addon2">
+            <button onclick="searchPhone()" class="btn btn-primary rounded-end" type="button"
+                id="search-btn">Search</button>
+
+        </div>
+
+        <div id="showingTotalPhoneCount">
+
+        </div>
+
+
+    </header>
+
+    <main>
+        <section class="container">
+            <!-- total phone and which number of phone we can see -->
+            <div id="spinner" class="text-center">
+
+            </div>
+            <!--if phone list length 0 then show this messeage  -->
+            <div class="d-block ">
+                <h2 id="phone_not_avabile" class="text-warning text-center"></h2>
+            </div>
+        </section>
+        <!-- phone details seciton -->
+        <section>
+            <!-- search Phone infomatin after clicking  -->
+            <div id="phoneDetails">
+
+            </div>
+        </section>
+
+        <!-- card section -->
+        <section>
+            <!-- card information -->
+            <div id="card-area" class="py-4 container row row-cols-1 row-cols-md-3 g-4 mx-auto">
+
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <!-- Bootstrap script link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!--  js file link -->
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
