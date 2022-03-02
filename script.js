@@ -1,22 +1,24 @@
 // global variable
-const cardId = document.getElementById("card-area");
-const tatalPhoneCalId=document.getElementById("showingTotalPhoneCount");
+const cardArea = document.getElementById("card-area");
+const showingTotalPhoneCount = document.getElementById("showingTotalPhoneCount");
+const phoneNotAvailable = document.getElementById('phone_not_avabile');
+
 // get  Phnone name using serach and connect with server
 const searchPhone = () => {
   const searchField = document.getElementById("search-input");
-  cardId.textContent = "";
-  tatalPhoneCalId.textContent = "";
+  cardArea.textContent = "";
+  showingTotalPhoneCount.textContent = "";
+  phoneNotAvailable.textContent = '';
   const searchText = searchField.value;
   searchField.value = "";
   document.getElementById("phoneDetails").textContent = "";
-  // spin start
+  // spin or preloader on
   const bookLoading = document.getElementById("spinner");
   bookLoading.innerHTML = `
       <div class="spinner-border text-info m-auto" role="status">
           <span class="visually-hidden">Loading...</span>
       </div>
     `;
-  // spin end
 
   //  api connection
   const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
@@ -32,10 +34,10 @@ const searchPhone = () => {
     });
 };
 
-// display all phones start
+// display all phones
 const displayPhoneResult = (phones, totalPhone, customlength, searchText) => {
   if (searchText == "") {
-    // spiner off
+    // spiner or preloader off
     const showTitle = document.getElementById("spinner");
     showTitle.innerHTML = "";
 
@@ -52,13 +54,13 @@ const displayPhoneResult = (phones, totalPhone, customlength, searchText) => {
 
     const PhoneNotAvaileId = document.getElementById("phone_not_avabile");
     PhoneNotAvaileId.textContent = "";
-    cardId.textContent = "";
+    cardArea.textContent = "";
 
     if (phones.length === 0) {
       PhoneNotAvaileId.style.marginTop = '1rem';
       PhoneNotAvaileId.innerText = "no result found ☹️";
     } else {
-      cardId.textContent = "";
+      cardArea.textContent = "";
       customlength.forEach((phone) => {
         //for  Create a card
         const div = document.createElement("div");
@@ -74,26 +76,25 @@ const displayPhoneResult = (phones, totalPhone, customlength, searchText) => {
         </div>
       </div>
       `;
-        cardId.appendChild(div);
+        cardArea.appendChild(div);
       });
     }
-    // spiner off
+
+    // spiner or preloader finally off
     const showTitle = document.getElementById("spinner");
     showTitle.innerHTML = "";
   }
 };
-// display all phones end
 
-// phone information api get by phone Id start
+// phone information api get by phone
 const PhoneInfomation = (id) => {
   const url = `https://openapi.programming-hero.com/api/phone/${id}`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => displayPhoneDetails(data.data));
 };
-// phone information api get by phone Id end
 
-// for display phone full informaiton start
+// for display phone full info
 const displayPhoneDetails = (details) => {
   const detailSection = document.getElementById("phoneDetails");
   detailSection.textContent = "";
@@ -104,17 +105,15 @@ const displayPhoneDetails = (details) => {
       <div class="product-detail-left">
           <img src="${details.image}" class="img-fluid">
           <h4 class="text-primary">${details.name}</h4>
-          <p class="text-danger text-center">${
-            details.releaseDate ? details.releaseDate : "No Release Date !!!"
-          }</p>
+          <p class="text-danger text-center">${details.releaseDate ? details.releaseDate : "No Release Date !!!"
+    }</p>
       </div>
 
       <div class="product-detail-middle">
           <h5 ><b><u>Main Features:</u></b> </h5>
           <p><b>Storage: </b><span>${details.mainFeatures.storage}</span></p>
-          <p><b>Display Size: </b><span>${
-            details.mainFeatures.displaySize
-          }</span></p>
+          <p><b>Display Size: </b><span>${details.mainFeatures.displaySize
+    }</span></p>
           <p><b>Chipset: </b><span>${details.mainFeatures.chipSet}</span></p>
           <p><b>Memory: </b><span>${details.mainFeatures.memory}</span></p>
           <p><b>Sensors: </b><span>${details.mainFeatures.sensors}</span></p>
@@ -122,27 +121,20 @@ const displayPhoneDetails = (details) => {
 
       <div class="product-detail-right">
           <h5><b><u>Other Features:</u></b> </h5>
-          <p><b>WLAN: </b><span>${
-            details.others ? details.others.WLAN : "No Information!"
-          }</span></p>
-          <p><b>Bluetooth: </b><span>${
-            details.others ? details.others.Bluetooth : "No Information !"
-          }</span></p>
-          <p><b>GPS: </b><span>${
-            details.others ? details.others.GPS : "No Information !"
-          }</span></p>
-          <p><b>NFC: </b><span>${
-            details.others ? details.others.NFC : "No Information !"
-          }</span></p>
-          <p><b>Radio: </b><span>${
-            details.others ? details.others.Radio : "No Information !"
-          }</span></p>
-          <p><b>USB: </b><span>${
-            details.others ? details.others.USB : "No Information !"
-          }</span></p>
+          <p><b>WLAN: </b><span>${details.others ? details.others.WLAN : "No Information!"
+    }</span></p>
+          <p><b>Bluetooth: </b><span>${details.others ? details.others.Bluetooth : "No Information !"
+    }</span></p>
+          <p><b>GPS: </b><span>${details.others ? details.others.GPS : "No Information !"
+    }</span></p>
+          <p><b>NFC: </b><span>${details.others ? details.others.NFC : "No Information !"
+    }</span></p>
+          <p><b>Radio: </b><span>${details.others ? details.others.Radio : "No Information !"
+    }</span></p>
+          <p><b>USB: </b><span>${details.others ? details.others.USB : "No Information !"
+    }</span></p>
       </div>
   </div>
 `;
-
   detailSection.appendChild(detailDiv);
 };
