@@ -44,9 +44,9 @@ const displayPhoneResult = (phones, totalPhone, customlength, searchText) => {
       "Please enter a phone name!!";
   } else {
     document.getElementById("showingTotalPhoneCount").innerHTML = `
-  <div class="text-center text-success">
-    <span class="fw-bold">Total Phone Found:</span> ${totalPhone},
-    <span class="fw-bold">Showing Results:</span> ${customlength.length}
+  <div class="text-center text-white">
+    <span class="fw-bold">Total Results:</span> ${totalPhone},
+    <span class="fw-bold">Visible Results:</span> ${customlength.length}
   </div>`;
 
     const PhoneNotAvaileId = document.getElementById("phone_not_avabile");
@@ -62,7 +62,7 @@ const displayPhoneResult = (phones, totalPhone, customlength, searchText) => {
         const div = document.createElement("div");
         div.innerHTML = `
       <div class="col " >
-        <div class="card rounded shadow ">
+        <div class="card rounded shadow p-5">
           <img src="${phone.image}" class="card-img-top w-75 mx-auto" alt="...">
           <div class="card-body text-center">
             <h5 class="card-title fw-bold">${phone.phone_name}</h5>
