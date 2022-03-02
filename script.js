@@ -40,8 +40,9 @@ const displayPhoneResult = (phones, totalPhone, customlength, searchText) => {
     showTitle.innerHTML = "";
 
     //if input is null then show this error messeage
+    document.getElementById("phone_not_avabile").style.marginTop = '1rem';
     document.getElementById("phone_not_avabile").innerText =
-      "Please enter a phone name!!";
+      "please, enter a phone name🥺";
   } else {
     document.getElementById("showingTotalPhoneCount").innerHTML = `
   <div class="text-center text-white">
@@ -54,7 +55,8 @@ const displayPhoneResult = (phones, totalPhone, customlength, searchText) => {
     cardId.textContent = "";
 
     if (phones.length === 0) {
-      PhoneNotAvaileId.innerText = "Result Not Founded!!";
+      PhoneNotAvaileId.style.marginTop = '1rem';
+      PhoneNotAvaileId.innerText = "no result found ☹️";
     } else {
       cardId.textContent = "";
       customlength.forEach((phone) => {
