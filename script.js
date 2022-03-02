@@ -69,7 +69,7 @@ const displayPhoneResult = (phones, totalPhone, customlength, searchText) => {
           <div class="card-body text-center">
             <h5 class="card-title fw-bold">${phone.phone_name}</h5>
             <p class="card-text">Brand:${phone.brand}</p>
-            <a href="#" onclick="PhoneInfomation('${phone.slug}')" class="btn btn-primary mx-auto">Show Details</a>
+            <a href="#" onclick="PhoneInfomation('${phone.slug}')" class="btn btn-success mx-auto">Show Details</a>
           </div>
         </div>
       </div>

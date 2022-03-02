@@ -23,6 +23,11 @@ body {
   align-items: center;
 }
 
+.card {
+  border-radius: 1rem !important;
+  box-shadow: 5px 10px #888888;
+}
+
 /* for phone display */
 @media only screen and (max-width: 480px) {
   .product-detail {
@@ -45,5 +50,14 @@ body {
 
   .product-detail-right p {
     font-size: 10px;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  .form-control {
+    width: 100% !important;
+    margin-bottom: 1rem;
   }
 }
